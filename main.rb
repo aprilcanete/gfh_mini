@@ -1,6 +1,6 @@
      
 require 'sinatra'
-require 'sinatra/reloader' # turn off when deploying
+# require 'sinatra/reloader' # turn off when deploying
 require 'pg'
 
 def db_query(sql, params = [])
