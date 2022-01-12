@@ -4,7 +4,7 @@ require 'sinatra'
 require 'pg'
 
 def db_query(sql, params = [])
-  conn = PG.connect(ENV['DATABAS_URL'])
+  conn = PG.connect(ENV['DATABASE_URL'])
   result = conn.exec_params(sql, params)
 
   conn.close
