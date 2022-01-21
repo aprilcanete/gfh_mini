@@ -1,10 +1,10 @@
      
 require 'sinatra'
-# require 'sinatra/reloader' # turn off when deploying
+# require 'sinatra/reloader' if development?
 require 'pg'
 
 def db_query(sql, params = [])
-  conn = PG.connect(ENV['DATABASE_URL'])
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'goodfoodhunting'})
   result = conn.exec_params(sql, params)
 
   conn.close
